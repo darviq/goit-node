@@ -5,7 +5,7 @@ const contactsPath = path.join(__dirname + "/db/contacts.json");
 
 function listContacts() {
     fs.readFile(contactsPath)
-        .then(contacts => console.log(JSON.parse(contacts)))
+        .then(contacts => console.table(JSON.parse(contacts)))
         .catch(error => console.log(error.message));
 }
 
