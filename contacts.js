@@ -1,5 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
+const {v4: uuidv4} = require("uuid");
 
 const contactsPath = path.join(__dirname + "/db/contacts.json");
 
@@ -35,7 +36,7 @@ function addContact(name, email, phone) {
                     JSON.stringify([
                         ...contacts,
                         {
-                            id: contacts[contacts.length - 1].id + 1,
+                            id: uuidv4(),
                             name: name,
                             email: email,
                             phone: phone,
